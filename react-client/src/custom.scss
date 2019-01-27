@@ -1,13 +1,22 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 .container {
-  border: solid green;
+  border: 1px solid black;
+  margin-top: 20%;
 }
 
 .row {
-  border: solid yellow;
+  // border: solid yellow;
 }
 
 .col {
   border: solid blue;
+}
+
+.loginPadding {
+  padding: 5%;
+}
+
+.inputPadding {
+  padding-bottom: 5%;
 }

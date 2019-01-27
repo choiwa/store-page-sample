@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import List from "./components/List.jsx";
-// import "bootstrap/dist/css/bootstrap.css";
+// https://facebook.github.io/create-react-app/docs/adding-bootstrap
 import "./custom.scss";
 
 class App extends React.Component {
@@ -31,9 +31,16 @@ class App extends React.Component {
     return (
       <div className="container">
         <div className="row justify-content-md-center">
-          <div className="col-md-auto">please log in to enter the site</div>
+          <div className="col-md-auto loginPadding">
+            please log in to enter the site
+          </div>
         </div>
-        <List items={this.state.items} />
+        <div className="row justify-content-md-center">
+          <div className="col-md-auto inputPadding">
+            Please enter your name: <input type="text" name="name" />
+          </div>
+        </div>
+        {/* <List items={this.state.items} /> */}
       </div>
     );
   }
