@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import List from "./components/List.jsx";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
+import "./custom.scss";
 
 class App extends React.Component {
   constructor(props) {
