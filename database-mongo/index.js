@@ -1,14 +1,14 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+var mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/271017/test");
 
 var db = mongoose.connection;
 
-db.on('error', function() {
-  console.log('mongoose connection error');
+db.on("error", function() {
+  console.log("mongoose connection error");
 });
 
-db.once('open', function() {
-  console.log('mongoose connected successfully');
+db.once("openUri", function() {
+  console.log("mongoose connected successfully");
 });
 
 var itemSchema = mongoose.Schema({
@@ -16,11 +16,11 @@ var itemSchema = mongoose.Schema({
   description: String
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Item = mongoose.model("Item", itemSchema);
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
-    if(err) {
+    if (err) {
       callback(err, null);
     } else {
       callback(null, items);
