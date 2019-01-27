@@ -30,9 +30,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="row">
-          <div className="col">hello world</div>
-          <div className="col">hello world</div>
+        <div className="row justify-content-md-center">
+          <div className="col-md-auto">please log in to enter the site</div>
         </div>
         <List items={this.state.items} />
       </div>

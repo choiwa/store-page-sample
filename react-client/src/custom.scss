@@ -1,9 +1,13 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 .container {
-  border: solid;
+  border: solid green;
 }
 
 .row {
-  border: solid;
+  border: solid yellow;
+}
+
+.col {
+  border: solid blue;
 }
