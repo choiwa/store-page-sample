@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-import List from "./components/List.jsx";
+import Listing from "./components/List.jsx";
 // https://facebook.github.io/create-react-app/docs/adding-bootstrap
 import "./custom.scss";
 
@@ -39,6 +39,9 @@ class App extends React.Component {
           <div className="col-md-auto inputPadding">
             Please enter your name: <input type="text" name="name" />
           </div>
+        </div>
+        <div>
+          <Listing />
         </div>
         {/* <List items={this.state.items} /> */}
       </div>
