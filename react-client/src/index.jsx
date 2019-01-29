@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
-import List from "./components/List.jsx";
+import Listing from "./components/List.jsx";
 // https://facebook.github.io/create-react-app/docs/adding-bootstrap
 import "./custom.scss";
 
@@ -40,7 +40,11 @@ class App extends React.Component {
             Please enter your name: <input type="text" name="name" />
           </div>
         </div>
+        <div>
+
+        </div>
         {/* <List items={this.state.items} /> */}
+          <Listing />
       </div>
     );
   }

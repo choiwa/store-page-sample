@@ -1,2 +1,4 @@
 node_modules
 bundle.js
+test_data.json
+ .idea/
