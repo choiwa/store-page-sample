@@ -41,9 +41,10 @@ class App extends React.Component {
           </div>
         </div>
         <div>
-          <Listing />
+
         </div>
         {/* <List items={this.state.items} /> */}
+          <Listing />
       </div>
     );
   }
