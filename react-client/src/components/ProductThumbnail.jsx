@@ -3,8 +3,8 @@ import "../custom.scss";
 
 const ProductThumbnail = props => {
   return (
-      <div className="container">
-          <div className="row">
+    <div className="container">
+      <div className="row justify-content-center">
         {props.items.map((item, index) => {
           return (
             <div key={index} className="col">
@@ -13,9 +13,9 @@ const ProductThumbnail = props => {
             </div>
           );
         })}
-          </div>
-        <div>im thumbnail</div>
       </div>
+      <div>im thumbnail</div>
+    </div>
   );
 };
 
