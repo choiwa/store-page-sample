@@ -1,6 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
-// import ProductThumbnail from "./ProductThumbnail.jsx";
+import { Redirect } from "react-router-dom";
 import "../custom.scss";
 
 class Login extends React.Component {
