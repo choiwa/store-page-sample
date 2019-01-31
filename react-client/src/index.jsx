@@ -2,50 +2,54 @@ import React from "react";
 import ReactDOM from "react-dom";
 import $ from "jquery";
 import Listing from "./components/List.jsx";
+import Login from "./components/Login.jsx";
+import ProductThumbnail from "./components/ProductThumbnail.jsx";
+import { BrowserRouter, Route } from "react-router-dom";
 // https://facebook.github.io/create-react-app/docs/adding-bootstrap
 import "./custom.scss";
+const data = require("../../test_data.json");
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.sendItems = this.sendItems.bind(this);
     this.state = {
       items: []
     };
   }
 
   componentDidMount() {
-    $.ajax({
-      url: "/items",
-      success: data => {
-        this.setState({
-          items: data
-        });
-      },
-      error: err => {
-        console.log("err", err);
-      }
-    });
+    this.setState({ items: data.data });
+
+    // console.log(this.state.items);
+    // $.ajax({
+    //   url: "/items",
+    //   success: data => {
+    //     this.setState({
+    //       items: data
+    //     });
+    //   },
+    //   error: err => {
+    //     console.log("err", err);
+    //   }
+    // });
+  }
+
+  sendItems() {
+    return this.state.items;
   }
 
   render() {
     return (
-      <div className="container">
-        <div className="row justify-content-md-center">
-          <div className="col-md-auto loginPadding">
-            please log in to enter the site
-          </div>
-        </div>
-        <div className="row justify-content-md-center">
-          <div className="col-md-auto inputPadding">
-            Please enter your name: <input type="text" name="name" />
-          </div>
-        </div>
+      <BrowserRouter>
         <div>
-
+          <Route exact path="/" component={Login} />
+          <Route
+            path="/productlistings"
+            render={() => <ProductThumbnail items={this.sendItems()} />}
+          />
         </div>
-        {/* <List items={this.state.items} /> */}
-          <Listing />
-      </div>
+      </BrowserRouter>
     );
   }
 }
