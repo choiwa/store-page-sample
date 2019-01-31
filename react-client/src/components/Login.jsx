@@ -16,15 +16,17 @@ class Login extends React.Component {
   redirectToListings(e) {
     if (e.key === "Enter") {
       // for database;
-      console.log(e.target.value);
+      console.log("the value typed:", e.target.value);
       this.setState({ toProductListings: true });
+      // FFIX
       console.log(this.state.toProductListings);
     }
   }
 
   render() {
     if (this.state.toProductListings) {
-      console.log("here");
+      console.log("in to render to redirect");
+      // Redirect needs to change state to trigger
       return <Redirect to="/productlistings" />;
     }
     return (
