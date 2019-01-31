@@ -2,6 +2,7 @@ import React from "react";
 import "../custom.scss";
 
 const ProductThumbnail = props => {
+  console.log(props.items);
   function convertTime(time) {
     const monthNames = [
       "January",
