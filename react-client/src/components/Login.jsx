@@ -1,33 +1,55 @@
 import React from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import ProductThumbnail from "./ProductThumbnail.jsx";
+// import ProductThumbnail from "./ProductThumbnail.jsx";
+import "../custom.scss";
 
-const redirectToProducts = () => {
-  return (
-    <BrowserRouter>
-      <Route path="/productlistings" component={ProductThumbnail} />
-      <Route exact path="/" render={() => <Redirect to="/productlistings" />} />
-    </BrowserRouter>
-  );
-};
+class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      toProductListings: false
+    };
 
-const Login = props => (
-  <div className="container">
-    <div className="row justify-content-md-center">
-      <div className="col-md-auto loginPadding">
-        please log in to enter the site
+    this.redirectToListings = this.redirectToListings.bind(this);
+  }
+
+  redirectToListings(e) {
+    if (e.key === "Enter") {
+      // for database;
+      console.log(e.target.value);
+      this.setState({ toProductListings: true });
+      console.log(this.state.toProductListings);
+    }
+  }
+
+  render() {
+    if (this.state.toProductListings) {
+      console.log("here");
+      return <Redirect to="/productlistings" />;
+    }
+    return (
+      <div className="container">
+        <div className="row justify-content-md-center">
+          <div className="col-md-auto loginPadding">
+            please log in to enter the site
+          </div>
+        </div>
+        <div className="row justify-content-md-center">
+          <div className="col-md-auto inputPadding">
+            Please enter your name:{" "}
+            <input
+              type="text"
+              name="name"
+              onKeyDown={e => this.redirectToListings(e)}
+            />
+          </div>
+        </div>
+        <div />
+        {/* <List items={this.state.items} /> */}
+        {/* <Listing /> */}
       </div>
-    </div>
-    <div className="row justify-content-md-center">
-      <div className="col-md-auto inputPadding">
-        Please enter your name:{" "}
-        <input type="text" name="name" onKeyDown={redirectToProducts} />
-      </div>
-    </div>
-    <div />
-    {/* <List items={this.state.items} /> */}
-    {/* <Listing /> */}
-  </div>
-);
+    );
+  }
+}
 
 export default Login;
