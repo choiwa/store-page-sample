@@ -40,15 +40,29 @@ class ProductThumbnail extends React.Component {
   }
 
   turnToProductDetails(item) {
+    // https://reactjs.org/docs/state-and-lifecycle.html
+    // this.setState is Asynchronous
+    this.setState({ selectedItem: item }, () => {
+      this.changePage();
+    });
+  }
+
+  changePage() {
     this.setState({ selected: true });
-    this.setState({ selectedItem: item });
-    console.log(item);
   }
 
   render() {
     if (this.state.selected) {
       console.log("redirect to  product detail");
-      return <Redirect to="/productdetails" />;
+      console.log("item??", this.state.selectedItem);
+      return (
+        <Redirect
+          to={{
+            pathname: "/productdetails",
+            state: { product: this.state.selectedItem }
+          }}
+        />
+      );
     }
     return (
       <div className="container">
