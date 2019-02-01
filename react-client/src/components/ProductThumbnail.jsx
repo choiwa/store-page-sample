@@ -1,9 +1,20 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import "../custom.scss";
 
-const ProductThumbnail = props => {
-  console.log(props.items);
-  function convertTime(time) {
+class ProductThumbnail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedItem: {},
+      selected: false
+    };
+
+    this.turnToProductDetails = this.turnToProductDetails.bind(this);
+  }
+
+  convertTime(time) {
     const monthNames = [
       "January",
       "February",
@@ -28,25 +39,41 @@ const ProductThumbnail = props => {
     return `${month} ${theDate}, ${year}`;
   }
 
-  return (
-    <div className="container">
-      <div className="row justify-content-center">
-        {props.items.map((item, index) => {
-          return (
-            <div key={index} className="col text-center">
-              <img src={item.media[0].sizes[4].url} />
-              <div className="align-bottom">
-                <div>{item.title}</div>
-                <div>$ {item.price}</div>
-                <div>{convertTime(item.created_at)}</div>
+  turnToProductDetails(item) {
+    this.setState({ selected: true });
+    this.setState({ selectedItem: item });
+    console.log(item);
+  }
+
+  render() {
+    if (this.state.selected) {
+      console.log("redirect to  product detail");
+      return <Redirect to="/productdetails" />;
+    }
+    return (
+      <div className="container">
+        <div className="row justify-content-center">
+          {this.props.items.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="col text-center"
+                onClick={() => this.turnToProductDetails(item)}
+              >
+                <img src={item.media[0].sizes[4].url} />
+                <div className="align-bottom">
+                  <div>{item.title}</div>
+                  <div>$ {item.price}</div>
+                  <div>{this.convertTime(item.created_at)}</div>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+        <div>im thumbnail</div>
       </div>
-      <div>im thumbnail</div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default ProductThumbnail;
