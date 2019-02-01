@@ -71,7 +71,7 @@ class ProductThumbnail extends React.Component {
             return (
               <div
                 key={index}
-                className="col text-center"
+                className="col text-center rounded"
                 onClick={() => this.turnToProductDetails(item)}
               >
                 <img src={item.media[0].sizes[4].url} />
