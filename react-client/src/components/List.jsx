@@ -1,12 +1,31 @@
-import React from 'react';
-import ListItem from './ListItem.jsx';
+import React from "react";
+import ReactDOM from "react-dom";
+import ProductThumbnail from "./ProductThumbnail.jsx";
+const data = require("../../../test_data.json");
 
-const List = (props) => (
-  <div>
-    <h4> List Component </h4>
-    There are { props.items.length } items.
-    { props.items.map(item => <ListItem item={item}/>)}
-  </div>
-)
+class Listing extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      list: data.data
+    };
+  }
 
-export default List;
+  componentDidMount() {
+    // this.state.list.map(item => {
+    //   console.log(item.title);
+    // });
+  }
+
+  render() {
+    return (
+
+        <div className="row">
+          <ProductThumbnail items={this.state.list} />
+        </div>
+
+    );
+  }
+}
+
+export default Listing;
