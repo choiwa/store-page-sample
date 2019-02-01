@@ -46,8 +46,6 @@ class Login extends React.Component {
           </div>
         </div>
         <div />
-        {/* <List items={this.state.items} /> */}
-        {/* <Listing /> */}
       </div>
     );
   }

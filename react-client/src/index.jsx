@@ -1,7 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import $ from "jquery";
-import Listing from "./components/List.jsx";
 import Login from "./components/Login.jsx";
 import ProductThumbnail from "./components/ProductThumbnail.jsx";
 import ProductDetails from "./components/ProductDetails.jsx";

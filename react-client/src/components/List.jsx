@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import ProductThumbnail from "./ProductThumbnail.jsx";
 const data = require("../../../test_data.json");
 
@@ -19,11 +18,9 @@ class Listing extends React.Component {
 
   render() {
     return (
-
-        <div className="row">
-          <ProductThumbnail items={this.state.list} />
-        </div>
-
+      <div className="row">
+        <ProductThumbnail items={this.state.list} />
+      </div>
     );
   }
 }
