@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 .container {
-  border: 1px solid black;
+  // border: 1px solid black;
   margin-top: 20%;
 }
 
@@ -22,4 +22,12 @@
 
 .inputPadding {
   padding-bottom: 5%;
+}
+
+.description {
+  border: 0ch;
+}
+
+img {
+  padding: 1% 1% 1% 1%;
 }
