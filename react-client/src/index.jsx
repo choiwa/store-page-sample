@@ -4,6 +4,7 @@ import $ from "jquery";
 import Listing from "./components/List.jsx";
 import Login from "./components/Login.jsx";
 import ProductThumbnail from "./components/ProductThumbnail.jsx";
+import ProductDetails from "./components/ProductDetails.jsx";
 import { BrowserRouter, Route } from "react-router-dom";
 // https://facebook.github.io/create-react-app/docs/adding-bootstrap
 import "./custom.scss";
@@ -48,6 +49,7 @@ class App extends React.Component {
             path="/productlistings"
             render={() => <ProductThumbnail items={this.sendItems()} />}
           />
+          <Route path="/productdetails" component={ProductDetails} />
         </div>
       </BrowserRouter>
     );
