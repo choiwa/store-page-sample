@@ -1,6 +1,6 @@
-import React from "react";
-import { Redirect } from "react-router-dom";
-import "../custom.scss";
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+import '../custom.scss';
 
 class ProductThumbnail extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class ProductThumbnail extends React.Component {
 
     this.state = {
       selectedItem: {},
-      selected: false
+      selected: false,
     };
 
     this.turnToProductDetails = this.turnToProductDetails.bind(this);
@@ -16,18 +16,18 @@ class ProductThumbnail extends React.Component {
 
   convertTime(time) {
     const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
     const date = new Date(time);
     // returns the month in the specified date according to local time,
@@ -53,13 +53,13 @@ class ProductThumbnail extends React.Component {
 
   render() {
     if (this.state.selected) {
-      console.log("redirect to  product detail");
-      console.log("item??", this.state.selectedItem);
+      console.log('redirect to  product detail');
+      console.log('item??', this.state.selectedItem);
       return (
         <Redirect
           to={{
-            pathname: "/productdetails",
-            state: { product: this.state.selectedItem }
+            pathname: '/productdetails',
+            state: { product: this.state.selectedItem },
           }}
         />
       );
@@ -67,22 +67,23 @@ class ProductThumbnail extends React.Component {
     return (
       <div className="container">
         <div className="row justify-content-center">
-          {this.props.items.map((item, index) => {
-            return (
-              <div
-                key={index}
-                className="col text-center rounded"
-                onClick={() => this.turnToProductDetails(item)}
-              >
-                <img src={item.media[0].sizes[4].url} />
-                <div className="align-bottom">
-                  <div>{item.title}</div>
-                  <div>$ {item.price}</div>
-                  <div>{this.convertTime(item.created_at)}</div>
+          {this.props.items.map((item, index) => (
+            <div
+              key={index}
+              className="col text-center rounded"
+              onClick={() => this.turnToProductDetails(item)}
+            >
+              <img src={item.media[0].sizes[4].url} />
+              <div className="align-bottom">
+                <div>{item.title}</div>
+                <div>
+$
+                  {item.price}
                 </div>
+                <div>{this.convertTime(item.created_at)}</div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
         <div>im thumbnail</div>
       </div>

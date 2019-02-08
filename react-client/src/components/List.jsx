@@ -1,12 +1,13 @@
-import React from "react";
-import ProductThumbnail from "./ProductThumbnail.jsx";
-const data = require("../../../test_data.json");
+import React from 'react';
+import ProductThumbnail from './ProductThumbnail';
+
+const data = require('../../../test_data.json');
 
 class Listing extends React.Component {
   constructor() {
     super();
     this.state = {
-      list: data.data
+      list: data.data,
     };
   }
 
