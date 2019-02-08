@@ -1,19 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import Login from "./components/Login.jsx";
-import ProductThumbnail from "./components/ProductThumbnail.jsx";
-import ProductDetails from "./components/ProductDetails.jsx";
-import { BrowserRouter, Route } from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Login from './components/Login.jsx';
+import ProductThumbnail from './components/ProductThumbnail.jsx';
+import ProductDetails from './components/ProductDetails.jsx';
 // https://facebook.github.io/create-react-app/docs/adding-bootstrap
-import "./custom.scss";
-const data = require("../../test_data.json");
+import './custom.scss';
+import NavBar from './components/NavBar.jsx';
+
+const data = require('../../test_data.json');
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.sendItems = this.sendItems.bind(this);
     this.state = {
-      items: []
+      items: [],
     };
   }
 
@@ -42,7 +44,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
+          <NavBar />
           <Route exact path="/" component={Login} />
+          <Route exact path="/navbar" component={NavBar} />
           <Route
             path="/productlistings"
             render={() => <ProductThumbnail items={this.sendItems()} />}
@@ -54,4 +58,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
